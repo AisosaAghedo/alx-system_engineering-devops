@@ -1,2 +1,2 @@
 #!/bin/bash
-cat filename | awk 'NR % 2 ==1'
+cat -n | grep [13579][[:space:]] | tr -s ' ' | cut -f2
