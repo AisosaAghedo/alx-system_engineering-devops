@@ -1,2 +1,2 @@
 #!/bin/bash
- $(($WATER + $STIR))
+ $(($WATER + $STIR)) > bestchol
