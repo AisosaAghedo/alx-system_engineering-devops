@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-fixing what’s keeping the Ubuntu container’s Nginx installation from listening on port 80                                                                       
+#fixing what’s keeping the Ubuntu container’s Nginx installation from listening on port 80                                                                       
                                                                                           
 sudo rm /etc/nginx/sites-enabled/default                                                  
                                                                                           
