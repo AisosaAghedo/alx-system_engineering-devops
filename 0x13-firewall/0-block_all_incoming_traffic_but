@@ -3,6 +3,7 @@
 
 sudo apt-get install ufw
 sed -i 's/IPV6=.*/IPV6=yes/' /etc/default/ufw
+sudo ufw enable
 sudo ufw default allow outgoing
 sudo ufw default deny incoming
 sudo ufw allow ssh
