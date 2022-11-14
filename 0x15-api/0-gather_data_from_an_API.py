@@ -6,11 +6,22 @@ if __name__ == "__main__":
     import requests
     from sys import argv
 
-    url = "https://jsonplaceholder.typicode.com/"
-    user = requests.get(url + "users/{}".format(argv[1])).json()
-    todo_li = requests.get(url + "todos", params={"userId": argv[1]}).json()
+    i = 0
+    name = ""
+    total = 0
+    complete = 0
 
-    completed = [t.get("title") for t in todo_li if t.get("completed") is True]
-    print("Employee {} is done with tasks({}/{}):".format(
-        user.get("name"), len(completed), len(todo_li)))
-    [print("\t {}".format(c)) for c in completed]
+    req = requests.get("https://jsonplaceholder.typicode.com/users",
+                       params={"id": argv[1]})
+    name = req.json()[0].get("name")
+    req = requests.get("https://jsonplaceholder.typicode.com/todos",
+                       params={"userId": argv[1]})
+    total = len(req.json())
+    req = requests.get("https://jsonplaceholder.typicode.com/todos",
+                       params={"userId": argv[1], "completed": "true"})
+    complete = len(req.json())
+    print("Employee {} is done with tasks({:d}/{:d}):".format(
+            name, complete, total))
+    while i < len(req.json()):
+        print("\t {}".format(req.json()[i].get("title")))
+        i += 1
