@@ -5,6 +5,8 @@ The WordPress app was encountering a critical error in wp-settings.php when tryi
 
 Patch involved a simple fix on the typo, removing the trailing p.
 
+
+
 Timeline, Root cause and resolution:
 
 I encountered the issue upon opening the project at roughly 18:30 WAT and promptly proceeded to undergo solving the problem.
@@ -25,6 +27,8 @@ Tested another curl on the server and received status code 200
 
 Wrote a Puppet manifest to automate fixing of the error.
 
+
+
 Corrective and Preventative measures:
 
 This outage was not a web server error, but an application error. To prevent such outages moving forward, the following things should be done:
@@ -33,4 +37,4 @@ This outage was not a web server error, but an application error. To prevent suc
 
  Status monitoring. Enable some uptime-monitoring service such as UptimeRobot to alert instantly upon outage of the website.
 
-In response to this error, a Puppet manifest 0-strace_is_your_friend.pp was written to automate fixing of any such identitical errors should they occur in the future. The manifest replaces any phpp extensions in the file /var/www/html/wp-settings.php with php.
+In response to this error, a Puppet manifest 0-strace_is_your_friend.pp in the 0x18-webstack_monitoring directory was written to automate fixing of any such identitical errors should they occur in the future. The manifest replaces any phpp extensions in the file /var/www/html/wp-settings.php with php.
