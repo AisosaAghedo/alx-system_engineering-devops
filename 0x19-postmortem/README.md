@@ -1,12 +1,11 @@
-
-#Issue Summary:
+Issue Summary:
 
 Upon the release of ALX's System Engineering & DevOps project 0x19, approximately 18:00 West African Time (WAT) on the 31st of November,2022, an outage occurred on an isolated Ubuntu 14.04 container running an Apache web server. GET requests on the server led to 500 Internal Server Error's, when the expected response was an HTML file defining a simple Holberton WordPress site.
 The WordPress app was encountering a critical error in wp-settings.php when trying to load the file class-wp-locale.phpp. The correct file name, located in the wp-content directory of the application folder, was class-wp-locale.php.
 
 Patch involved a simple fix on the typo, removing the trailing p.
 
-#Timeline, Root cause and resolution:
+Timeline, Root cause and resolution:
 
 I encountered the issue upon opening the project at roughly 18:30 WAT and promptly proceeded to undergo solving the problem.
 
@@ -26,7 +25,7 @@ Tested another curl on the server and received status code 200
 
 Wrote a Puppet manifest to automate fixing of the error.
 
-#Corrective and Preventative measures:
+Corrective and Preventative measures:
 
 This outage was not a web server error, but an application error. To prevent such outages moving forward, the following things should be done:
 
